@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Pokémon</title>
+    <style>
+        .pokemon-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+        }
+        .pokemon-image {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Liste de tous les Pokémon</h1>
+    <div id="pokemon-container">
+        <!-- Les cartes Pokémon seront ajoutées ici -->
+    </div>
+
+    <script>
+        // Fonction pour récupérer tous les Pokémon de l'API PokeAPI
+        function getAllPokemon() {
+            fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+            .then(response => response.json())
+            .then(data => {
+                displayAllPokemon(data.results);
+            })
+            .catch(error => {
+                console.error('Erreur lors de la récupération des données :', error);
+            });
+        }
+
+        // Fonction pour afficher tous les Pokémon
+        function displayAllPokemon(pokemonList) {
+            const pokemonContainer = document.getElementById('pokemon-container');
+            console.log(pokemonContainer)
+            pokemonList.forEach((pokemon, index) => {
+                createPokemonCard(pokemon, index + 1, pokemonContainer);
+            });
+        }
+
+        // Fonction pour créer une carte pour un Pokémon
+        function createPokemonCard(pokemon, index, container) {
+            const pokemonCard = document.createElement('div');
+            pokemonCard.classList.add('pokemon-card');
+            pokemonCard.addEventListener('click', () => {
+                alert(`Vous avez cliqué sur ${pokemon.name.toUpperCase()} !`);
+            });
+
+            const pokemonName = document.createElement('h2');
+            pokemonName.textContent = pokemon.name.toUpperCase();
+
+            const pokemonImage = document.createElement('img');
+            pokemonImage.classList.add('pokemon-image');
+            const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index}.png`;
+            pokemonImage.src = imageUrl;
+            pokemonImage.alt = pokemon.name;
+
+            pokemonCard.appendChild(pokemonName);
+            pokemonCard.appendChild(pokemonImage);
+            container.appendChild(pokemonCard);
+        }
+
+        // Appel de la fonction pour récupérer tous les Pokémon au chargement de la page
+        getAllPokemon();
+    </script>
+</body>
+</html>

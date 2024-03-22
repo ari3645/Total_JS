@@ -1,0 +1,93 @@
+/* Mise en page de l'écriture, des marges et du background pour la balise body. */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #91eeeb;
+}
+/* Mise en page de l'écriture, des marges et du background pour la balise header (en-tête de la page). */
+header {
+    background-color: #2dbc4e;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+/* Mise en page de l'écriture et des marges pour la balise main. */
+main {
+    padding: 20px;
+    text-align: center;
+}
+/* Mise en page de l'écriture et des marges pour la balise Titre h1. */
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+/* Permet d'aligner un texte au centre. */
+.center {
+    text-align: center;
+}  
+/* Personnalisation de l'input où l'on rentre le nom du pokémon. */
+.pokemonNameInput {
+    padding: 10px;
+    border: 2px solid #2795df;
+    border-radius: 5px;
+    font-size: 16px;
+
+}
+/* Personnalisation de l'intérieur de l'input. */
+#pokemonNameInput::placeholder {
+    color: #ccc;
+    font-size: 15px;
+}
+/* Personnalisation du bouton de recherche. */
+.submitButton {
+    padding: 10px 20px;
+    background-color: #2795df;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+/* Personnalisation de l'écriture du nom du pokémon. */
+.pokemon-name {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+/* Personnalisation de l'image du pokémon. */
+.pokemon-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 5px;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+}
+/* Personnalisation de l'écriture des informations du pokémon. */
+.pokemon-info {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+/* Personnalisation de la carte qui contient le pokémon et ses informations. */
+.pokemon-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    width: 200px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    max-width: 300px;
+}
+/* Personnalisation du bouton de retour. */
+.backButton {
+    position: fixed;
+    top: 75px;
+    left: 10px;
+    display: none;
+}

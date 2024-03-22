@@ -1,0 +1,8 @@
+.fond {
+    background-color: rgba(150, 218, 130, 0.726);
+}
+
+.bg-success-new {
+    --bs-bg-opacity: 1;
+    background-color: rgba(150, 218, 130, 0.726);
+  }

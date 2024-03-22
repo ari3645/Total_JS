@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr" bg-success>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calculatrice.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Cours Dev Web</title>
+</head>
+<body class="d-flex flex-column h-100 fond">
+        <div>
+            <div class="mx-auto p-2" style="width: 600px;">
+                <h1 id="titre" class="mx-auto ">Bienvenue sur ma calculatrice !</h1>
+            </div>
+                
+            </div>
+            <div class="mx-auto p-2" style="width: 225px;">
+                <input type="text" id="equation" readonly>
+            </div>
+
+            <div class="mx-auto p-2" style="width: 150px;">
+                <button onclick="ajouteroperation('1')" class="ms-2" id="Bouton1">1</button>
+                <button onclick="ajouteroperation('2')" class="ms-2" id="Bouton2">2</button>
+                <button onclick="ajouteroperation('3')" class="ms-2" id="Bouton3">3</button>
+
+            </div>
+            <div class="mx-auto p-2" style="width: 150px;">
+                <button onclick="ajouteroperation('4')" class="ms-2" id="Bouton4">4</button>
+                <button onclick="ajouteroperation('5')" class="ms-2" id="Bouton5">5</button>
+                <button onclick="ajouteroperation('6')" class="ms-2" id="Bouton6">6</button>
+            </div>
+            <div class="mx-auto p-2" style="width: 150px;">
+                <button onclick="ajouteroperation('7')" class="ms-2" id="Bouton7">7</button>
+                <button onclick="ajouteroperation('8')" class="ms-2" id="Bouton8">8</button>
+                <button onclick="ajouteroperation('9')" class="ms-2" id="Bouton9">9</button>
+            </div>
+            <div class="mx-auto p-2" style="width: 75px;">
+                <button onclick="ajouteroperation('0')" class="ms-2" id="Bouton0">0</button> 
+            </div>
+            <div class="mx-auto p-2" style="width: 185px;">
+                <button onclick="ajouteroperation('+')" class="ms-2" id="BoutonAddition">+</button>
+                <button onclick="ajouteroperation('-')" class="ms-2" id="BoutonSoustraction">-</button>
+                <button onclick="ajouteroperation('*')" class="ms-2" id="BoutonMultiplication">*</button>
+                <button onclick="ajouteroperation('/')" class="ms-2" id="BoutonDivision">/</button>
+            </div>
+            <div class="mx-auto p-2" style="width: 220px;">
+                <button onclick="reset()" class="ms-2" id="Initialiser">Initialiser</button>
+                <button onclick="calculer()" class="ms-2" id="Calculer">Calculer</button>
+
+            </div>
+
+
+            <div class="p-2" style="width: 424px;">
+                <label for="guessField">Entrez votre premier nombre : </label>
+                <input type="text" id="premierNombre" class="guessField"/>
+            </div>
+
+            <div class="p-2" style="width: 438px;">
+                <label for="guessField">Entrez votre deuxième nombre : </label>
+                <input type="text" id="secondNombre" class="guessField" />
+            </div>
+
+            <div class="p-2"  style="width: 430px;">
+                <label for="guessField">Entrez l'opérateur : </label>
+                <input type="text" id="operation" class="guessField" />
+            </div>
+
+            <div class="p-2" style="width: 75px;">
+                <button onclick="calcul()" class="ms-2" id="boutonCalculer">Calculer</button>
+            </div>
+
+            <p id="resultat" class="p-2"></p>
+
+    </header>
+   
+    <script src="calculatrice.js"></script>
+</body>
+</html>
