@@ -116,42 +116,25 @@ function getPokemonInfo(pokemonId) {
             return response.json();
         })
 
-        //Récupération des données, passage au format JSON et affichage des informations du Pokémon.
-        .then(pokemonData => {
 
-            // Récupaération de la division où l'on affichera les informations du pokémon.
-            const pokemonContainer = document.getElementById('pokemonListe');
+        //Affichage des informations du pokémon.
+        .then(data => {
+            document.getElementById("pokemonName").textContent = data.name;
+            document.getElementById("pokemonImage").src = data.sprites.front_default;
+            document.getElementById("pokemonType").textContent = data.types[0].type.name;
+            document.getElementById("pokemonWeight").textContent = data.weight + " hg";
+            document.getElementById("pokemonHeight").textContent = data.height + " dm";
+            document.getElementById("pokemonInformation").style.display = "block";
+            document.getElementById("pokemonListe").style.display = "none";
+        })
 
-            // Requête des informations du pokémon à l'API.
-            fetch(pokemonData.species.url)
 
-                // Passage au format JSON.
-                .then(response => response.json())
-
-                //Affichage des informations du pokémon.
-                .then(Data => {
-
-                    // Récupération des types du pokémon.
-                    const types = pokemonData.types.map(typeEntry => typeEntry.type.name);
-
-                    // Affichage des informations du pokémon.
-                    pokemonContainer.innerHTML = `
-                        <h2>${pokemonData.name}</h2>
-                        <img src="${pokemonData.sprites.front_default}" alt="${pokemonData.name}">
-                        <p><strong>ID:</strong> ${pokemonData.id}</p>
-                        <p><strong>Types:</strong> ${types.join(", ")}</p>
-                        <p><strong>Taille:</strong> ${pokemonData.height} dm</p>
-                        <p><strong>Poids:</strong> ${pokemonData.weight} hg</p>
-                    `;
-                }
-            )
-            // Si une erreur se produit, on l'affiche dans la console.
-            .catch(error => {
-                console.error('Erreur lors de la récupération des données du Pokémon :', error);
-            });
+        // Si une erreur se produit, on l'affiche dans la console.
+        .catch(error => {
+            console.error('Erreur lors de la récupération des données du Pokémon :', error);
+        });
         }
-    )
-}
+
 
 // Fonction qui permet d'afficher le bouton de retour.
 function afficherBoutonRetour() {
